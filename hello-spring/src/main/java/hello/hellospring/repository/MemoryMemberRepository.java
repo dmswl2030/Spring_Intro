@@ -15,16 +15,16 @@ public class MemoryMemberRepository implements MemberRepository{
 
 	@Override
 	//회원을 저장하는 save 메서드
-	public Member save(Member member) {
-		member.setId(++sequence);
-		store.put(member.getId(), member);
-		return member;
-	}
+    public Member save(Member member) {
+        member.setId(++sequence);
+        store.put(member.getId(), member);
+        return member;
+    }
 
 	@Override
 	//ID를 기반으로 회원을 찾는 메서드
 	public Optional<Member> findById(Long id) {
-		return Optional.ofNullable(store.get(id)); //null인 경우도 있으니 ofNullable로 감싸준다
+		return Optional.ofNullable(store.get(id));//null인 경우도 있으니 ofNullable로 감싸준다
 	}
 
 	@Override
