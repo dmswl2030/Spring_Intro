@@ -3,11 +3,14 @@ package hello.hellospring.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
 
+@Transactional //**JPA를 통한 모든 데이터 변경은 트랜잭션 안에서 실행해야 한다.**
 public class MemberService {
 	
 	private final MemberRepository memberRepository;
